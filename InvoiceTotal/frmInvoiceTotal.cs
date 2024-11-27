@@ -33,15 +33,10 @@ namespace InvoiceTotal
             txtNumberOfInvoices.Text = numberOfInvoices.ToString("n0");
             txtTotalOfInvoices.Text = totalOfInvoices.ToString("c");
             txtInvoiceAverage.Text = invoiceAverage.ToString("c");
-
-            if (invoiceTotal > maxInvoice)
-            {
-                maxInvoice = invoiceTotal;
-            }
-            if (invoiceTotal < minInvoice)
-            {
-                minInvoice = invoiceTotal;
-            }
+            
+            maxInvoice = Math.Max(maxInvoice, invoiceTotal);
+            minInvoice = Math.Min(minInvoice, invoiceTotal);
+            
 
             txtLargestInvoice.Text = maxInvoice.ToString("c");
             txtSmallestInvoice.Text = minInvoice.ToString("c");
